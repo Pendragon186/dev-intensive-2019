@@ -12,6 +12,6 @@ class TextMessage(
     date:Date = Date(),
     var text:String?
 ): BaseMessage(id, from, chat, isIncoming, date) {
-    override fun formatMessege(): String = "id:$id, ${from?.firstName} ${if(isIncoming) "get" else "send"} message $text ${date.humanizeDiff()}"
+    override fun formatMessage(): String = "id:$id, ${from?.firstName} ${if(isIncoming) "get" else "send"} message $text ${date.humanizeDiff()}"
 
 }
