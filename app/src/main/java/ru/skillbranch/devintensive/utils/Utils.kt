@@ -10,7 +10,7 @@ object Utils {
         return firstName to lastName
     }
 
-   fun transliteration(payload: String): String {
+   fun transliteration(payload: String, devider:String = " "): String {
        var lat: String?
 
        lat = payload.replace("а".toRegex(), "a")
@@ -46,7 +46,7 @@ object Utils {
        lat = lat.replace("э".toRegex(), "e")
        lat = lat.replace("ю".toRegex(), "yu")
        lat = lat.replace("я".toRegex(), "ya")
-       lat = lat.replace(" ".toRegex(), "_")
+       lat = lat.replace(" ".toRegex(), "$devider")
 
 
        lat = lat.replace("А".toRegex(), "A")
