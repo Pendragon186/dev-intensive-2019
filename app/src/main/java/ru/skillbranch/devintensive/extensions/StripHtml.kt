@@ -1,5 +1,5 @@
 package ru.skillbranch.devintensive.extensions
 
-fun String.stripHTML ():String{
+fun String.stripHtml ():String{
     return this.replace("<.*?>".toRegex(),"").replace("\\s+".toRegex()," ")
 }
