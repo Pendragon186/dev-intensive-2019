@@ -54,7 +54,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             return "несколько секунд назад"
         }
 
-    if (diff in 45..75) return  " минуту назад"
+    if (diff in 45..75) return  "минуту назад"
     if (diff >= 76 && min < 45) {
             if ( min in 2..4) return  "$min минуты назад"
             return  "$min минут назад"
@@ -65,7 +65,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         if ( hour in 2..4) return  "$hour часа назад"
         return  "$hour часов назад"
     }
-    if (hour in 23..26) return  " день назад"
+    if (hour in 23..26) return  "день назад"
 
         if (hour >= 27 && day < 360) {
             if (day in 2..4) return  "$day дня назад"
@@ -75,7 +75,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         else if (day >= 360 ) return "более года назад"}
 
     if( diff < 0) {
-        diff = (diff * (-1) + 1)
+        diff = (diff * (-1))
         min = (diff/60).toInt()
         hour = min/60
         day = hour/24
