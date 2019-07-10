@@ -14,7 +14,7 @@ const val HOUR = 60 * MINUTE
 const val DAY = 24 * HOUR
 
 
-fun Date.format(pattern: String = "HH:mm:ss dd.MM.YYYY"):String {
+fun Date.format(pattern: String = "HH:mm:ss dd.MM.YY"):String {
     val dateFormat = SimpleDateFormat(pattern, Locale("ru"))
     return dateFormat.format(this)
 }
@@ -71,6 +71,6 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             return  "$day дней назад"
         }
 
-        else if (day >= 360 ) return "больше года назад"
+        else if (day >= 360 ) return "более года назад"
         return "Invalid value"
 }

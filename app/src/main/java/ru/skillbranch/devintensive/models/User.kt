@@ -4,11 +4,11 @@ import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 data class User (val id:String,
-                 val firstName:String?,
+                 var firstName:String?,
                  var lastName:String?,
-                 val avatar:String?,
-                 val rating:Int = 0,
-                 val respect:Int = 0,
+                 var avatar:String?,
+                 var rating:Int = 0,
+                 var respect:Int = 0,
                  val lastVisit:Date? = null,
                  val isOnline:Boolean = false)
 {

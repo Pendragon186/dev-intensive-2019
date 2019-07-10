@@ -89,8 +89,8 @@ object Utils {
 
     fun toInitials(firstName: String?, lastName: String?): String? {
 
-        var shortName = firstName?.dropLastWhile { !it.isUpperCase()}
-        var shortlast = lastName?.dropLastWhile { !it.isUpperCase()}
+        var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase()}
+        var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase()}
          return "$shortName$shortlast"
     }
 }

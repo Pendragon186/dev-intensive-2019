@@ -7,7 +7,7 @@ import ru.skillbranch.devintensive.utils.Utils
 
 fun User.toUserView():UserView{
     val nickname = Utils.transliteration("$firstName $lastName", "_")
-    val initials = Utils.toInitials(firstName?.capitalize(), lastName?.capitalize())
+    val initials = Utils.toInitials(firstName, lastName)
     val status = if(lastVisit == null) "Не разу не был" else if (isOnline) "Пользаватель  онлайн" else "Последний визит был ${lastVisit.humanizeDiff()}"
     return UserView(
         id,
