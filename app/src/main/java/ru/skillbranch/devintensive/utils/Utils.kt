@@ -3,11 +3,20 @@ package ru.skillbranch.devintensive.utils
 import android.icu.text.Transliterator
 
 object Utils {
-    fun parseFullName(fullName:String?): Pair<String?, String?> {
-        var parts : List<String>? = fullName?.split(" ")
+    fun parseFullName(fullName:String?): Pair<String?, String?>{
+        var check:String? = fullName?.trim()
+        val checkName:String?
+
+        when(check) {
+            "" -> checkName = null
+            " " -> checkName = null
+            else -> checkName = check
+        }
+        val parts : List<String>? = checkName?.split(" ")
+
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
-        return firstName to lastName
+        return Pair(firstName, lastName)
     }
 
    fun transliteration(payload: String, devider:String = " "): String {
@@ -49,8 +58,8 @@ object Utils {
        lat = lat.replace(" ".toRegex(), "$devider")
 
 
-       lat = lat.replace("А".toRegex(), "A")
        lat = lat.replace("Б".toRegex(), "B")
+       lat = lat.replace("А".toRegex(), "A")
        lat = lat.replace("В".toRegex(), "V")
        lat = lat.replace("Г".toRegex(), "G")
        lat = lat.replace("Д".toRegex(), "D")
@@ -88,9 +97,26 @@ object Utils {
    }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
+        if (lastName == null&& firstName != null) {
 
-        var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase()}
-        var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase()}
-         return "$shortName$shortlast"
+            var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+            return "$shortName"
+
+        } else if (firstName == null && lastName != null) {
+
+            var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+            return "$shortlast"
+
+
+        } else if (firstName == null && lastName == null) {
+
+            return null
+
+        } else {
+
+            var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+            var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+            return "$shortName$shortlast"
+        }
     }
 }

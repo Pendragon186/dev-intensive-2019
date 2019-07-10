@@ -23,15 +23,15 @@ data class User (val id:String,
                 "${if (lastName==="Love") "Name of magician $firstName $lastName" else "Apparently his name $firstName $lastName Kappa"} \n")
     }
 
-        companion object Factory{
-            private var lastId: Int = -1
-            fun makeUser(fullName:String?): User{
-                lastId++
+    companion object Factory {
+        private var lastId : Int = 1
+        fun makeUser (fullName:String?) : User {
+            lastId++
 
-                var (firstName, lastName) = Utils.parseFullName(fullName)
+            var (firstName, lastName) = Utils.parseFullName(fullName)
 
-                return User(id = "$lastId", firstName = firstName, lastName = lastName)
-            }
+            return User(id = "$lastId", firstName = firstName, lastName = lastName)
         }
+    }
 
 }
