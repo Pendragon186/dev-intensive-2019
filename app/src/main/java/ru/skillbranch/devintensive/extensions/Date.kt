@@ -59,7 +59,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             if ( min in 2..4) return  "$min минуты назад"
             return  "$min минут назад"
         }
-    if (min in 45..75) return  " час назад"
+    if (min in 45..75) return  "час назад"
 
     if (min >= 76 && hour < 22){
         if ( hour in 2..4) return  "$hour часа назад"
@@ -89,8 +89,8 @@ fun Date.humanizeDiff(date: Date = Date()): String {
 
         if (diff in 45..75) return  "через минуту"
         if (diff >= 76 && min < 45) {
-            if (min == 1) return  "через $min минуту "
-            else if ( min in 2..4) return  "через $min минуты "
+            if (min == 1) return  "через $min минуту"
+            else if ( min in 2..4) return  "через $min минуты"
             return  "через $min минут"
         }
         if (min in 45..75) return  "через час"

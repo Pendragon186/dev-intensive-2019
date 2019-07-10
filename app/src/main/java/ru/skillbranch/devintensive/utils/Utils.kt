@@ -96,27 +96,64 @@ object Utils {
        return lat
    }
 
-    fun toInitials(firstName: String?, lastName: String?): String? {
-        if (lastName == null&& firstName != null) {
+//    fun toInitials(firstName: String?, lastName: String?): String? {
+//
+//        if (lastName == null&& firstName != null) {
+//
+//            var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+//            return "$shortName"
+//
+//        } else if (firstName == null && lastName != null) {
+//
+//            var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+//            return "$shortlast"
+//
+//
+//        } else if (firstName == " " && lastName == "") {
+//
+//            return null
+//
+//        } else {
+//
+//            var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+//            var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
+//            return "$shortName$shortlast"
+//        }
+//    }
+fun toInitials(firstName: String?, lastName: String?): String? {
 
-            var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
-            return "$shortName"
+    val firstName2 = firstName?.trim()
+    val lastName2 = lastName?.trim()
 
-        } else if (firstName == null && lastName != null) {
-
-            var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
-            return "$shortlast"
-
-
-        } else if (firstName == null && lastName == null) {
-
+    return when (firstName2) {
+        null -> if (lastName2 == null) {
             return null
-
-        } else {
-
-            var shortName = firstName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
-            var shortlast = lastName?.capitalize()?.dropLastWhile { !it.isUpperCase() }
-            return "$shortName$shortlast"
-        }
+        } else if (lastName2 == " ") {
+            return null
+        } else if (lastName2 == "") {
+            return null
+        } else return "${lastName2[0].toUpperCase()}"
+        " " -> if (lastName2 == null) {
+            return null
+        } else if (lastName2 == " ") {
+            return null
+        } else if (lastName2 == "") {
+            return null
+        } else return "${lastName2[0].toUpperCase()}"
+        "" -> if (lastName2 == null) {
+            return null
+        } else if (lastName2 == " ") {
+            return null
+        } else if (lastName2 == "") {
+            return null
+        } else return "${lastName2[0].toUpperCase()}"
+        else -> if (lastName2 == null) {
+            return "${firstName2[0].toUpperCase()}"
+        } else if (lastName2 == " ") {
+            return "${firstName2[0].toUpperCase()}"
+        } else if (lastName2 == "") {
+            return "${firstName2[0].toUpperCase()}"
+        } else "${firstName2[0].toUpperCase()}${lastName2[0].toUpperCase()}"
     }
+}
 }
