@@ -24,7 +24,7 @@ import android.view.inputmethod.EditorInfo
 import kotlin.Boolean as Boolean1
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 lateinit var benderImage:ImageView
 lateinit var textTxt:TextView
 lateinit var messageEd: EditText
